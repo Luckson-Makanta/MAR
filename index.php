@@ -1,40 +1,38 @@
 <?php 
-include('connect.php');
+include('db_connection/connect.php');
 
-
+$sql = 'SELECT * FROM reasons';
+$values = mysqli_query($connect, $sql);
+$results = mysqli_fetch_all($values, MYSQLI_ASSOC);
 
 
 
       
 
-//echo print_r($names[0]);
+
  ?>
-<!doctype html>
-<html lang="en">
-  
-<?php include('header.html');      ?>
-
-
-<?php
-
-$sql = 'SELECT id, firstName, lastName, message FROM reasons';
-
-$results =  mysqli_query($connect, $sql);
-$array_values = mysqli_fetch_all($results, MYSQLI_ASSOC);
-// print_r($array_values);
-
-?>
+<!DOCTYPE html>
+<html>
+<?php  include('header.html'); ?>
 
 <div class="container">
-  <p>Requests (<?php echo count($array_values); ?>)</p>
-  <?php foreach($array_values as $value){  ?>
 
-        <p><?php echo $value['firstName'].' '.$value['lastName']?></p>
+       <h1>Students Informatiom</h1>
+        <p>Requests (<?php echo count($results)?>)</p>
 
-  <?php }?>
+<?php foreach($results as $result){ ?>
+
+       <h2> <?php echo $result['id'].' '.  $result['firstName']; ?></h2>
+       <p><?php echo $result['lastName'].' '. $result['message'].' '.$result['dateTime'];  ?></p>
+
+
+<?php } ?>
+
 </div>
+<
 
-     
-  <?php  include('footer.html');     ?>  
-    
+
+
+<?php include('footer.html'); ?>
+</body>
 </html>
