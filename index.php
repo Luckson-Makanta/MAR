@@ -5,11 +5,6 @@ $sql = 'SELECT * FROM reasons';
 $values = mysqli_query($connect, $sql);
 $results = mysqli_fetch_all($values, MYSQLI_ASSOC);
 
-
-
-      
-
-
  ?>
 <!DOCTYPE html>
 <html>
@@ -17,21 +12,23 @@ $results = mysqli_fetch_all($values, MYSQLI_ASSOC);
 
 <div class="container">
 
-       <h1>Students Informatiom</h1>
-        <p>Requests (<?php echo count($results)?>)</p>
-
+ <h1>Students Information</h1>
+<h3>Requests(<?php echo count($results);?>)</h3>
+      
 <?php foreach($results as $result){ ?>
 
-       <h2> <?php echo $result['id'].' '.  $result['firstName']; ?></h2>
-       <p><?php echo $result['lastName'].' '. $result['message'].' '.$result['dateTime'];  ?></p>
-
+       <div class="container">
+              <div class="group-list">
+                            <p class="list-group-item list-group-item-action list-group-item-light">
+                                   
+                                   <a href="more_info.php?id=<?php echo $result["id"] ?>"><?php echo $result['firstName'];?></a>
+                            </p>
+              </div>
+       </div>      
 
 <?php } ?>
 
 </div>
-<
-
-
 
 <?php include('footer.html'); ?>
 </body>
