@@ -13,7 +13,7 @@ $results = mysqli_fetch_all($values, MYSQLI_ASSOC);
  ?>
 <!DOCTYPE html>
 <html>
-<?php  include('header.html'); ?>
+<?php  include('header.php'); ?>
 
 <div class="container">
 

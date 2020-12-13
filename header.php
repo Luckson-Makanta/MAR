@@ -1,3 +1,9 @@
+<?php
+    session_start();
+
+
+
+?>
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -11,9 +17,12 @@
   <body>
 
     <div class="jumbotron jumbotron-fluid" style="background: rgb(70, 182, 211);">
+            <div class="row justify-content-md-end justify-content-sm-end">
+    <h5 class="px-5 display-5">You are logged in as <?php  ?></h5>
+            </div>
         <div class="container">
             <h1 class="display-4">ICT 1110 Computer System and Architecture (2019/20)</h1>
             <h3 class="display-4">Makeup Requesting Platform</h3>
-        </div>
+    </div>
 
     </div>
