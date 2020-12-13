@@ -13,8 +13,8 @@
   $sql = "INSERT INTO reasons(firstName,lastName,message) VALUES('$firstName','$lastName','$message')";
                   
     if(mysqli_query($connect, $sql)){
-     // echo 'Success';
-  header('Location:https://moodle.unza.zm/course/view.php?id=2363');
+     
+          header('Location:https://moodle.unza.zm/course/view.php?id=2363');
     }else{
       echo 'sending failed!'.mysqli_error($connect);
     }
@@ -23,23 +23,19 @@
 
         $file  = $_FILES['file'];
 
-          //  print_r($file);
-
              $fileName = $file['name'];
              $fileSize = $file['size'];
              $fileError = $file['error'];
             $file_Tmp = $file['tmp_name'];
             $fileType = $file['type'];
 
-           // echo $message;
-           
             $fileType = strtolower($fileType);
 
             $fileExt = explode('.', $fileName);
 
             if($fileError === 0){
 
-                   if(end($fileExt)==='pdf' ){
+                   if(end($fileExt) === 'pdf' ){
 
                             if($fileSize <= 1023000){
                                   $load = 'uploads/'.$fileName;
@@ -99,12 +95,15 @@
    	            		  	<small style="color: red;"><?php 
                                   
                                   if($errors){
+
                                     echo $errors['size'];
                                     echo $errors['type'];
                                     echo $errors['error'];
                                   }
 
-                         ?></small>
+                         ?> </small> 
+
+                       
    	      	            	</div> <br><br>
 
 

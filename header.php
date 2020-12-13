@@ -1,7 +1,7 @@
 <?php
     session_start();
 
-
+     $user = $_SESSION['user'];
 
 ?>
 <head>
@@ -18,7 +18,7 @@
 
     <div class="jumbotron jumbotron-fluid" style="background: rgb(70, 182, 211);">
             <div class="row justify-content-md-end justify-content-sm-end">
-    <h5 class="px-5 display-5">You are logged in as <?php  ?></h5>
+    <h5 class="px-5 display-5">You are logged in as <?php echo $user; ?></h5>
             </div>
         <div class="container">
             <h1 class="display-4">ICT 1110 Computer System and Architecture (2019/20)</h1>
